@@ -1,0 +1,2 @@
+event: {{ event }}
+data: <div {% for name, value in attrs.items() %} {{ name }}="{{ value }}" {% endfor %}>{{ chunk }}</div>

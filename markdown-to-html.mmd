@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant M as Markdown File
+    participant P as Markdown Processor
+    participant H as HTML File
+    participant B as Web Browser
+    M->>P: Process Markdown
+    P->>H: Generate HTML
+    H->>B: Render in Browser

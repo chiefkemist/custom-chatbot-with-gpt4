@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: GET /stream
+    Note over Client: Header: Accept: text/event-stream
+    Note over Server: Establishes stream connection
+    loop Streaming data
+        Server-->>Client: data: {"event": "message", "data": "JSON payload"}
+        Note over Server: Header: Content-Type: text/event-stream
+    end
+    Note over Client: Processes each received event

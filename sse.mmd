@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Note over Client,Server: Connection Initialization
+    Client->>Server: GET /events
+    Note over Server: Set "Content-Type: text/event-stream"
+    Server-->>Client: HTTP 200 OK
+
+    Note over Client,Server: Streaming Events
+    loop Every Time an Event Is Sent
+        Note over Server: Server prepares an event with a specific topic and data
+        Server->>Client: event: user-update\n\n
+        Server->>Client: data: {"userId": 1, "status": "active"}\n\n
+        Client->>Server: Event received, handling user-update
+
+        Server->>Client: event: message\n\n
+        Server->>Client: data: {"chatId": 42, "text": "Hello there!"}\n\n
+        Client->>Server: Event received, handling message
+    end
+
+    Note over Client,Server: Connection Closed (either by client or server)
+    Server--xClient: Connection closed
+    Client--xServer: Connection closed

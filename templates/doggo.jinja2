@@ -1,0 +1,28 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <title>Formulario | Page Doggo</title>
+</head>
+<body>
+    <h1>Dog Breeds as Server Sent Events</h1>
+    <hr>
+    <div id="doggo-sse-listener" hx-ext="sse" sse-connect="/dogstream" sse-swap="Terminate,DogBreedNoMass,DogBreed">
+    </div>
+    <b>
+        <div id="DogBreedNoMass"></div>
+        <br>
+        <div id="DogBreed"></div>
+    </b>
+{#    <div hx-ext="sse" sse-connect="/dogstream">#}
+{#        <b>#}
+{#            <div sse-swap="DogBreedNoMass"></div>#}
+{#            <br>#}
+{#            <div sse-swap="DogBreed"></div>#}
+{#        </b>#}
+{#    </div>#}
+</body>
+</html>

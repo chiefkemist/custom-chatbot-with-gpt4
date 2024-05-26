@@ -1,0 +1,22 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <title>Formulario | {{ greet }}, {{ name }}</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+    <p>Este es un formulario de prueba</p>
+    <p>{{ greet }}, {{ name }}</p>
+    <form action="procesar.php" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellido" placeholder="Apellido">
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <a href="/doggo">Dog Breeds</a>
+</body>
+</html>

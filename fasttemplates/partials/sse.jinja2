@@ -1,0 +1,6 @@
+
+{% macro sse_stream(sse_config) %}
+    <div id="{{ sse_config.listener }}" hx-ext="sse" sse-connect="{{ sse_config.path }}" sse-swap="{{ sse_config.topics | join(',') }}">
+    </div>
+{% endmacro %}
+
